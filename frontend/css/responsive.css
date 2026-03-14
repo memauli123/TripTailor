@@ -1,0 +1,78 @@
+/* frontend/css/responsive.css */
+@media (max-width: 1024px) {
+    .masonry-grid {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .masonry-grid {
+        column-count: 2;
+    }
+
+    .trending-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .explore-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .search-filters {
+        flex-direction: column;
+        width: 90%;
+        gap: 1rem;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .search-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .category-tags {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .community-layout {
+        flex-direction: column;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .masonry-grid {
+        column-count: 1;
+    }
+    
+    .hero {
+        height: 50vh;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+    }
+}

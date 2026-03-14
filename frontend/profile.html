@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Tailor - Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="logo">Trip Tailor</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="profile.html" class="active" id="profile-link">Profile</a></li>
+            <li><button id="theme-toggle">🌓</button></li>
+            <li id="auth-nav"><a href="#" id="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <section class="explore-header" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+        <h1 id="profile-username">User Profile</h1>
+        <p id="profile-email">Loading...</p>
+    </section>
+
+    <section class="explore-results" style="padding: 2rem 5%;">
+        <h2>My Saved Destinations / Liked Posts</h2>
+        <div class="masonry-grid" id="saved-items-container">
+            <p style="grid-column: 1 / -1; color: gray;">You haven't saved anything yet.</p>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/profile.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const token = localStorage.getItem('token');
+            
+            if (!user || !token) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            document.getElementById('profile-username').innerText = user.username || 'User Profile';
+            document.getElementById('profile-email').innerText = user.email || '';
+
+            document.getElementById('logout-btn').addEventListener('click', () => {
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>
